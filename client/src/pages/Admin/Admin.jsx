@@ -3,6 +3,7 @@ import { useRef, useState, useEffect } from "react";
 
 // App imports
 import Post from "./components/Post";
+import SelectedPost from "./components/SelectedPost";
 
 function Admin() {
     const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -58,7 +59,7 @@ function Admin() {
         setResourceType(e.target.getAttribute('value'))
     }
 
-    function handleAuthenticationButtonOnClick(){
+    function handleAuthenticationButtonOnClick() {
         const userInput = authenticationInputRef.current.value.trim();
         if (userInput == import.meta.env.VITE_ADMIN_PASSWORD) {
             setIsAuthenticated(true);
@@ -69,6 +70,11 @@ function Admin() {
         <>
             {isAuthenticated ? (
                 <>
+                    <SelectedPost
+                        selectedPost={selectedPost}
+                        onChangeHandler={() => { setSelectedPost(null) }}
+                    />
+
                     <div ref={tabsRef} className="tabs mb-6">
                         <a className="tab tab-active" value="all" onClick={(e) => { handleTabOnClick(e) }}>All</a>
                         <a className="tab" value="archived" onClick={(e) => { handleTabOnClick(e) }}>Archived</a>

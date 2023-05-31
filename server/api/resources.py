@@ -40,12 +40,12 @@ class PublicPost(Resource):
         
         if public_post_id == 'encrypt':
             new_public_message = database_model_public_post(
-                author = request.form['author'],
-                message = request.form['message'],
-                key = request.form['key'],
+                author = request.form['author'].strip(),
+                message = request.form['message'].strip(),
+                key = request.form['key'].strip(),
                 cipher = VigenereCipher.encrypt_message(
-                    message = request.form['message'],
-                    key = request.form['key']), )
+                    message = request.form['message'].strip(),
+                    key = request.form['key'].strip()), )
             
             new_public_message.save_record()
             formatted_new_public_message = public_post_schema.dump(new_public_message)
@@ -53,20 +53,32 @@ class PublicPost(Resource):
             return response, 201    
         
         elif public_post_id == 'decrypt':
+            response = {'status': ''}
             public_post = database_model_public_post.get_by_id(request.form['id'])
             if (request.form['key'] == public_post.key):
                 public_post.decrypt_record()
-            return "", 200
+                response.update({'status': 'success'})
+            return response, 200
+        
+        elif public_post_id == 'archive':
+            response = {'status': ''}
+            public_post_to_archive = database_model_public_post.get_by_id(request.form['id'])
+            if public_post_to_archive is None:
+                abort(404)
+            else:
+                public_post_to_archive.archive_record()
+                response.update({'status': 'success'})
+            return response, 200
 
-    
-    def delete(self, public_post_id):
-        public_post_to_delete = database_model_public_post.get_by_id(public_post_id)
-        if public_post_to_delete is None:
-            abort(404)
-        else:
-            public_post_to_delete.archive_record()
-            
-        return "", 204
+        elif public_post_id == 'unarchive':
+            response = {'status': ''}
+            public_post_to_unarchive = database_model_public_post.get_by_id(request.form['id'])
+            if public_post_to_unarchive is None:
+                abort(404)
+            else:
+                public_post_to_unarchive.unarchive_record()
+                response.update({'status': 'success'})
+            return response, 200
 
 class CryptographyMessage(Resource):
     def put(self, route):

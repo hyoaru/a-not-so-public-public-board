@@ -27,9 +27,17 @@ class PublicPost(database.Model):
     def archive_record(self):
         self.is_archived = True
         database.session.commit()
+    
+    def unarchive_record(self):
+        self.is_archived = False
+        database.session.commit()
 
     def decrypt_record(self):
         self.is_decrypted = True
+        database.session.commit()
+
+    def encrypt_record(self):
+        self.is_decrypted = False
         database.session.commit()
     
     @classmethod

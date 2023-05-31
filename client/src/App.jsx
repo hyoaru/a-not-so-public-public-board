@@ -1,7 +1,9 @@
 import { Route, Routes, Link } from "react-router-dom";
 import { useState } from "react";
+
+// App imports
 import Base from "./Base";
-import Admin from "./pages/Admin";
+import Admin from "./pages/Admin/Admin";
 import Home from "./pages/Home/Home";
 
 function App() {

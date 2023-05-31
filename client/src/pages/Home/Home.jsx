@@ -11,7 +11,7 @@ function Home() {
     const [selectedPost, setSelectedPost] = useState(null);
 
     useEffect(() => {
-        fetch(import.meta.env.VITE_API_POSTS_NOT_ARCHIVED)
+        fetch(`${import.meta.env.VITE_API_URL}/public_post/not_archived`)
             .then((response) => response.json())
             .then((json) => setPosts(json["public_posts"]));
 

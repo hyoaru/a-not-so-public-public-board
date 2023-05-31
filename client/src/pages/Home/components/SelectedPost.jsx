@@ -40,7 +40,7 @@ function SelectedPost(props) {
             formData.append("key", e.target.value.trim());
             formData.append("cipher", selectedPostCipher);
 
-            fetch(import.meta.env.VITE_API_MESSAGE_DECRYPT, {
+            fetch(`${import.meta.env.VITE_API_URL}/message/decrypt`, {
                 method: "PUT",
                 body: formData,
             })
@@ -57,7 +57,7 @@ function SelectedPost(props) {
             formData.append("id", selectedPostId);
             formData.append("key", inputtedKeyValue);
 
-            fetch(import.meta.env.VITE_API_POSTS_DECRYPT, {
+            fetch(`${import.meta.env.VITE_API_URL}/public_post/decrypt`, {
                 method: "PUT",
                 body: formData,
             });

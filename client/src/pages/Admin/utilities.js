@@ -1,6 +1,6 @@
 function formatDateTime(datetime) {
     const datetimeLocaleFormatting = {
-        weekday: "long",
+        // weekday: "long",
         year: "numeric",
         month: "short",
         day: "numeric",

@@ -9,7 +9,7 @@ function Footer() {
                         © 2023 
                         <Link to={"admin"} className="hover:text-primary"> A Not-So-Public Public Board. {" "}</Link>
                         A Course Requirement in Algorithms and Complexity 101. {" "}
-                        <a className="underline decoration-solid" href="https://github.com/hyoaru">Hyoaru</a>
+                        <a className="underline decoration-solid" href="https://hyoaru.github.io">Hyoaru</a>
                         . All Rights Reserved.
                     </small>
                 </div>

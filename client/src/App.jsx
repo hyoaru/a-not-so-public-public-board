@@ -1,4 +1,4 @@
-import { Route, Routes, Link } from "react-router-dom";
+import { Route, Routes, Link, BrowserRouter, HashRouter } from "react-router-dom";
 import { useState } from "react";
 
 // App imports
@@ -9,12 +9,14 @@ import Home from "./pages/Home/Home";
 function App() {
     return (
         <>
-            <Routes>
-                <Route path="/" element={<Base />}>
-                    <Route index element={<Home />} />
-                    <Route path="admin" element={<Admin />} />
-                </Route>
-            </Routes>
+            <HashRouter>
+                <Routes>
+                    <Route path="/" element={<Base />}>
+                        <Route index element={<Home />} />
+                        <Route path="admin" element={<Admin />} />
+                    </Route>
+                </Routes>
+            </HashRouter>
         </>
     );
 }

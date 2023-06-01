@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React, { useRef } from "react";
 
 function CreatePost() {
@@ -17,6 +18,8 @@ function CreatePost() {
                 method: 'PUT',
                 body: formData,
             })
+
+            window.location.reload();
         }
     }
 
@@ -66,9 +69,9 @@ function CreatePost() {
                     </div>
                     <div className="modal-action">
                         <button className="btn btn-error" onClick={handleButtonCancelOnClick}>Cancel</button>
-                        <a href="/" onClick={handleButtonClick} className="btn">
+                        <Link to="/" className="btn" onClick={handleButtonClick}>
                             Post
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </label>

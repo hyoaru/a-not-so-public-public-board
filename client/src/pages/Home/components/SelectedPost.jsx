@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 
 // App imports
 import formatDateTime from "../utilities";
@@ -62,6 +63,9 @@ function SelectedPost(props) {
                 body: formData,
             });
         }
+
+        window.location.reload();
+
     }
 
     return (
@@ -166,9 +170,9 @@ function SelectedPost(props) {
                                                 onChange={handleKeyInputOnChange}
                                                 ref={keyInputRef}
                                             />
-                                            <a href="/" className="btn" onClick={handleDecryptButtonOnClick}>
+                                            <Link to={"/"} className="btn" onClick={handleDecryptButtonOnClick}>
                                                 Decrypt
-                                            </a>
+                                            </Link>
                                         </label>
                                     </div>
                                 )}

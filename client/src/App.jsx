@@ -9,14 +9,14 @@ import Home from "./pages/Home/Home";
 function App() {
     return (
         <>
-            <HashRouter>
+            <BrowserRouter basename={import.meta.env.PUBLIC_URL}>
                 <Routes>
-                    <Route path="/" element={<Base />}>
+                    <Route exact path="/" element={<Base />}>
                         <Route index element={<Home />} />
                         <Route path="admin" element={<Admin />} />
                     </Route>
                 </Routes>
-            </HashRouter>
+            </BrowserRouter>
         </>
     );
 }

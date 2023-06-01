@@ -70,10 +70,12 @@ function Admin() {
         <>
             {isAuthenticated ? (
                 <>
-                    <SelectedPost
-                        selectedPost={selectedPost}
-                        onChangeHandler={() => { setSelectedPost(null) }}
-                    />
+                    {isToggleArchiveOnClick === false && (
+                        <SelectedPost
+                            selectedPost={selectedPost}
+                            onChangeHandler={() => { setSelectedPost(null) }}
+                        />
+                    )}
 
                     <div ref={tabsRef} className="tabs mb-6">
                         <a className="tab tab-active" value="all" onClick={(e) => { handleTabOnClick(e) }}>All</a>

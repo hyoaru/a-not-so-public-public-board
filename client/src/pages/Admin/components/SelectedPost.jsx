@@ -61,10 +61,14 @@ function SelectedPost(props) {
             fetch(`${import.meta.env.VITE_API_URL}/public_post/decrypt`, {
                 method: "PUT",
                 body: formData,
-            });
+            })
+            .then(data => data.json())
+            .then(json => {
+                window.location.reload()
+            })
         }
 
-        window.location.reload();
+        
     }
 
     return (

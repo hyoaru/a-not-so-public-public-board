@@ -14,12 +14,14 @@ function CreatePost() {
             formData.append('key', keyRef.current.value)
             formData.append('message', messageRef.current.value)
 
-            fetch('http://127.0.0.1:5000/public_post/encrypt', {
+            fetch(`${import.meta.env.VITE_API_URL}/public_post/encrypt`, {
                 method: 'PUT',
                 body: formData,
             })
-
-            window.location.reload();
+            .then(data => data.json())
+            .then(json => {
+                window.location.reload();
+            })
         }
     }
 

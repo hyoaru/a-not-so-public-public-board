@@ -14,7 +14,7 @@ def create_app():
     # Load configurations 
     load_dotenv()
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI_DEVELOPMENT')
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI_PRODUCTION')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
     # Add resources

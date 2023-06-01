@@ -1,5 +1,5 @@
 # A Not-So-Public Public Board
-A Not-So-Public Public Board is a web application that combines the concept of a freedom board with a twist of encryption. It allows users to post messages publicly, but those messages are encrypted using the Vigenère cipher algorithm. The application is built using ReactJS for the frontend, Flask for the backend, and Flask-RESTful for the API.
+A Not-So-Public Public Board is a web application developed as a course requirement for AL101 - Algorithms and Complexity. The application combines the concept of a freedom public board with a twist of encryption, allowing users to post messages publicly while encrypting them using the Vigenère cipher algorithm. The application utilizes ReactJS for the frontend, Flask for the backend, and Flask-RESTful for the API.
 * See live: https://hyoaru.github.io/a-not-so-public-public-board/
 
 ## Features
